@@ -17,7 +17,6 @@ export class CurrencyFormatDirective {
 
   @HostListener('focus', ['$event'])
   onFocus(event: any): void {
-    // Remove formatting on focus for easier editing
     const value = event.target.value.replace(/[^\d.-]/g, '');
     event.target.value = value;
   }

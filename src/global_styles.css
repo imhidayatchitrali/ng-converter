@@ -17,7 +17,6 @@ body {
   margin: 0 auto;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -35,7 +34,6 @@ body {
   background: #555;
 }
 
-/* Responsive utilities */
 @media (max-width: 576px) {
   .container-fluid {
     padding: 0 15px;

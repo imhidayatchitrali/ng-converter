@@ -29,9 +29,9 @@ import { Currency, ConversionResult } from '../../models/currency.model';
         <div class="col-12 col-md-8 col-lg-6">
           <mat-card class="converter-card">
             <mat-card-header>
-              <mat-card-title class="text-center w-100">
-                Currency Converter
-              </mat-card-title>
+<mat-card-title class="text-center w-100 title-text">
+  Currency Converter
+</mat-card-title>
             </mat-card-header>
             
             <mat-card-content>
@@ -49,7 +49,6 @@ import { Currency, ConversionResult } from '../../models/currency.model';
                   </mat-form-field>
                 </div>
 
-                <!-- From Currency -->
                 <div class="col-12 col-sm-6">
                   <mat-form-field class="w-100" appearance="outline">
                     <mat-label>From</mat-label>
@@ -61,7 +60,6 @@ import { Currency, ConversionResult } from '../../models/currency.model';
                   </mat-form-field>
                 </div>
 
-                <!-- To Currency -->
                 <div class="col-12 col-sm-6">
                   <mat-form-field class="w-100" appearance="outline">
                     <mat-label>To</mat-label>
@@ -73,7 +71,6 @@ import { Currency, ConversionResult } from '../../models/currency.model';
                   </mat-form-field>
                 </div>
 
-                <!-- Convert Button -->
                 <div class="col-12">
                   <button mat-raised-button 
                           color="primary" 
@@ -85,7 +82,6 @@ import { Currency, ConversionResult } from '../../models/currency.model';
                   </button>
                 </div>
 
-                <!-- Result -->
                 <div class="col-12" *ngIf="conversionResult">
                   <div class="result-card p-3 border rounded">
                     <div class="row align-items-center">
@@ -111,25 +107,58 @@ import { Currency, ConversionResult } from '../../models/currency.model';
     .converter-card {
       margin-top: 20px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: #424242;
+      color: white;
+    }
+
+    .title-text {
+      margin-bottom: 24px; 
+            padding-bottom: 16px;
+
     }
 
     .result-card {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, #616161 0%, #424242 100%);
       border: 1px solid #e0e6ed;
+      color: white;
     }
 
     mat-card-title {
       font-size: 1.5rem;
       font-weight: 600;
-      color: #333;
+      color: white !important;
+    }
+
+    mat-card-content {
+      padding-top: 8px;
     }
 
     mat-form-field {
       margin-bottom: 10px;
     }
 
+    .mat-input-element {
+      color: white !important;
+    }
+
+    .mat-select-value {
+      color: white !important;
+    }
+
+    .mat-form-field-label {
+      color: white !important;
+    }
+
+    .mat-form-field-underline {
+      background-color: white !important;
+    }
+
     .text-primary {
-      color: #007bff !important;
+      color: #69f0ae !important;
+    }
+
+    .text-muted {
+      color: #bdbdbd !important;
     }
 
     @media (max-width: 576px) {
@@ -139,6 +168,11 @@ import { Currency, ConversionResult } from '../../models/currency.model';
       
       mat-card-title {
         font-size: 1.3rem;
+      }
+      
+      .title-text {
+        margin-bottom: 16px;
+        padding-bottom: 12px;
       }
     }
   `]
@@ -152,7 +186,7 @@ export class CurrencyConverterComponent implements OnInit {
   isConverting = false;
   isLoadingCurrencies = false;
 
-  constructor(private currencyService: CurrencyService) {}
+  constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
     this.loadCurrencies();
