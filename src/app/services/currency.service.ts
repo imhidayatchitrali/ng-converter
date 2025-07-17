@@ -8,7 +8,8 @@ import { Currency, ConversionResult, ConversionHistory } from '../models/currenc
 })
 export class CurrencyService {
   // private apiUrl = 'http://localhost:3001/api/currency';
-  private apiUrl = 'http://localhost:3001/api';
+  private apiUrl = 'http://ng-converter-be-production.up.railway.app/api';
+  // private apiUrl = 'http://localhost:3001/api';
   private historySubject = new BehaviorSubject<ConversionHistory[]>([]);
   public history$ = this.historySubject.asObservable();
 
