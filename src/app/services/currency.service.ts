@@ -33,16 +33,17 @@ export class CurrencyService {
     const history = this.getStoredHistory();
     const newEntry: ConversionHistory = {
       id: Date.now().toString(),
-      ...conversion
+      ...conversion,
+      timestamp: new Date().toISOString() // Add ISO format timestamp
     };
-    
+
     history.unshift(newEntry);
-    
+
     // Keep only last 50 conversions
     if (history.length > 50) {
       history.splice(50);
     }
-    
+
     localStorage.setItem('currencyHistory', JSON.stringify(history));
     this.historySubject.next(history);
   }

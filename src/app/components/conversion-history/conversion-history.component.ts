@@ -125,10 +125,11 @@ import { ConversionHistory } from '../../models/currency.model';
     }
   `]
 })
+
 export class ConversionHistoryComponent implements OnInit {
   history: ConversionHistory[] = [];
 
-  constructor(private currencyService: CurrencyService) {}
+  constructor(private currencyService: CurrencyService) { }
 
   ngOnInit(): void {
     this.currencyService.history$.subscribe(history => {
@@ -140,7 +141,12 @@ export class ConversionHistoryComponent implements OnInit {
     this.currencyService.clearHistory();
   }
 
+  // formatDate(timestamp: string): string {
+  //   const date = new Date(timestamp);
+  //   return date.toLocaleString();
+  // }
   formatDate(timestamp: string): string {
+    console.log('Timestamp:', timestamp);
     const date = new Date(timestamp);
     return date.toLocaleString();
   }

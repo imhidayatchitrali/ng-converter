@@ -21,7 +21,7 @@ import { ConversionHistoryComponent } from './components/conversion-history/conv
   ],
   template: `
     <mat-toolbar color="primary" class="toolbar">
-       <span>Currency sConverter</span>
+       <span>Currency Converter</span>
     </mat-toolbar>
 
     <div class="main-content">
